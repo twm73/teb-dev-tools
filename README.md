@@ -40,7 +40,7 @@ Extension Template:
 ## Contact [**↑**](#Table-of-Contents)
 
 **Thanks to the courtesy of "Have a Book" company, I have received a space on their domain forum.**  
-**[Link to the forum](http://forum.haveabook.eu)**  
+**[Link to the forum](https://forum.haveabook.eu/categories)**  
 **There you can write to me, I will try to provide support as much as possible.
 I also invite you to create new projects.**
 
