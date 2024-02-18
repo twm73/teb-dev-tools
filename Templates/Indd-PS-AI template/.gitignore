@@ -1,0 +1,9 @@
+.idea/
+node_modules/
+console.log
+02 build/*.*
+03 installer/*.exe
+03 installer/*.bat
+03 installer/*.zxp
+03 installer/*.sh
+.rnd

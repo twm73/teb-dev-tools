@@ -1,0 +1,420 @@
+body {
+    font-family: 'Roboto', sans-serif;
+    font-weight: 400;
+    margin: 0;
+    font-size: medium;
+    background-color: #cccccc;
+}
+figure {
+    max-width: 100%;
+    padding: 0;
+    margin: 1rem 0;
+}
+figcaption {
+    margin: 0;
+    padding: 0;
+}
+figcaption > p {
+    margin: .5rem 0 0 0;
+    font-size: smaller;
+    font-weight: lighter;
+}
+
+img {
+    max-width: 100%;
+    margin: 0 auto;
+    padding: 0;
+}
+
+/*
+ol {
+    counter-reset: item;
+    display: flow-root;
+}
+
+ol > li {
+    display: block;
+    font-weight: 600;
+}
+
+ol > li > ul > li {
+    font-weight: 300;
+}
+
+
+
+ol > li > ol > li {
+    font-weight: 300;
+}
+
+ul > li > ol  {
+    counter-increment: none;
+
+}
+
+
+ul > li > ol > li {
+    font-weight: 300;
+    list-style-type: lower-alpha;
+}
+
+ul > li > ol > li:before {
+    content: counter(item, decimal) '. ';
+}
+
+
+
+ol > li:before {
+    content: counters(item, ".") ". ";
+    counter-increment: item;
+    text-align: right;
+    margin-left: -1.5em;
+}
+
+
+
+
+ul {
+    list-style-type: disc;
+    margin-bottom: .5em;
+}
+
+
+li {
+    margin-bottom: .3em;
+}
+
+ol {
+    margin-bottom: .5em;
+    margin-top: .3em;
+    margin-left: 1em;
+    padding: 0;
+}
+ol > li > ol {
+    margin-left: 2.5em;
+}
+
+*/
+
+h2, h3, h4, p {
+    margin: 0;
+}
+
+h1 {
+    margin: 0;
+    padding-left: 3rem;
+    font-size:  xxx-large;
+    font-family: 'Roboto', sans-serif;
+    font-weight: 600;
+
+    position: fixed;
+    z-index: 1;
+    top: 5rem;
+    left: 15rem;
+    overflow-x: hidden;
+    border-bottom: 2px solid black;
+}
+h2 {
+    font-size:  xxx-large;
+    font-family: 'Roboto', sans-serif;
+    font-weight: 600;
+    color: #6e6e6e;
+}
+
+h3 {
+    line-height: 150%;
+    font-family: 'Roboto', sans-serif;
+    font-size:  xx-large;
+    font-weight: 600;
+    color: #6e6e6e;
+}
+
+h4 {
+    line-height: 150%;
+    font-size: large;
+    color: #1e1e1e;
+}
+h5 {
+    font-size: 1rem;
+    margin: 0.5rem 0 0.3rem 0;
+    color: #6e6e6e;
+}
+h6 {
+    font-size: .8rem;
+    margin: 0.5rem 0 0.3rem 0;
+    color: #6e6e6e;
+}
+h2 + h3, h3 + h4 {
+    margin-top: 0;
+}
+
+h1 + p, h2 + p, p + h4, figure + h4
+{
+    margin-top: .9rem;
+}
+p + h2, figure + h2
+{
+    margin-top: 3rem;
+}
+p + h3,  figure + h3
+{
+    margin-top: 2rem;
+}
+
+p {
+    line-height: 150%;
+}
+
+section > ol > li{
+    margin-top: .5em;
+}
+code {
+    color: blue;
+    font-weight: bold;
+}
+a {
+    font-weight: 300;
+    text-decoration: none;
+}
+
+a:link {
+    color: #2F5496;
+}
+
+/* visited link */
+a:visited {
+    color: #2F5496;
+}
+
+/* mouse over link */
+a:hover {
+    color: blue;
+}
+
+/* selected link */
+a:active {
+    color: blue;
+}
+
+
+
+nav.side-nav {
+    background-color: #333;
+    overflow-x: hidden;
+    float: left;
+    height: 100vh;
+    width: 13rem;
+    padding: 12rem 1rem 5rem 1rem;
+    position: fixed;
+    z-index: 1;
+    top: 0;
+    left: 0;
+
+}
+
+nav.side-nav ol {
+    list-style: none;
+    padding-inline-start: 0;
+}
+
+.side-nav p {
+    width: 100%;
+    color: #f2f2f2;
+    font-size: 1.3rem;
+    text-align: left;
+    font-weight: bold;
+}
+
+.side-nav a {
+    width: 100%;
+    color: #f2f2f2;
+    text-decoration: none;
+    text-align: left;
+}
+
+
+.side-nav a:hover {
+    background-color: #ddd;
+    padding: 3px;
+    color: #6e6e6e;
+    font-weight: bold;
+    width: 100%;
+}
+
+section.h2-section {
+    max-width: 40rem;
+}
+
+div.main-content {
+    padding-right: 5rem;
+    position: fixed;
+    z-index: 1;
+    top: 12rem;
+    left: 18rem;
+    overflow-y: auto;
+    max-height: 80vh;
+    max-width: 100vw;
+    min-width: 30rem;
+}
+
+
+
+span.code {
+    font-family: "Open Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
+    padding: 2px;
+    background-color: #bbbbbb;
+}
+
+img + img {
+    margin-left: .5rem;
+}
+
+/*#starting,
+#options,
+#shortcuts
+{
+    display: none;
+}*/
+p + p {
+    margin-top: .5rem;
+}
+
+.button-screen {
+    margin: 0;
+}
+.h2-section {}
+section.h2-section + section.h2-section {
+    margin-top: 6rem;
+}
+.h3-section {}
+section.h3-section + section.h3-section {
+    margin-top: 3rem;
+}
+.h4-section {
+
+}
+p + section.h4-section,
+section.h4-section + section.h4-section {
+    margin-top: 1rem;
+}
+.h5-section {}
+.h6-section {}
+a.nav-h2-level {
+    font-size: 1rem;
+    font-weight: bold;
+}
+ol.nav-ol-h2-level > li + li {
+    margin-top: .8rem;
+}
+ol.nav-ol-h3-level > li + li {
+    margin-top: .5rem;
+}
+a.nav-h3-level {
+    font-size: .9rem;
+    font-weight: normal;
+    margin-left: .5rem;
+}
+a.nav-h4-level {
+    font-size: .8rem;
+    font-weight: normal;
+    margin-left: 1rem;
+}
+a.nav-h5-level {
+    font-size: 0.8rem;
+    font-weight: lighter;
+    margin-left: 1.5rem;
+}
+p.icon-in-text {
+    position: relative;
+    padding-left: 1.7rem;
+    margin-top: .2rem;
+
+}
+p.icon-in-text > img {
+    position: absolute;
+    left: 0;
+    top: 0.1rem;
+    margin-right: 1rem;
+}
+
+p.icon-description {
+
+}
+
+p.icon-selection {
+    padding-left: 2.1rem;
+}
+p.icon-in-text + p.icon-description {
+    margin-top: 0;
+}
+
+p.icon-description + p.icon-in-text{
+    margin-top: .3rem;
+}
+
+.h4-section p {
+
+}
+
+
+figure.icon {
+    margin: 1rem 0 0 0;
+}
+figure.icon-next {
+    margin: .3rem 0 0 0;
+}
+.indesign,
+.illustrator,
+.photoshop {
+
+}
+figure.photoshop:after,
+figure.illustrator:after,
+figure.indesign::after {
+     font-size: x-small;
+    background-color: #6e6e6e;
+    color: white;
+    margin-left: .3rem;
+    padding: 2px 4px;
+    vertical-align: 52%
+}
+
+
+figure.indesign.illustrator:not(.photoshop)::after {
+    content: "InDesign\00A0\00A0Illustrator";
+}
+figure.indesign.photoshop:not(.illustrator)::after {
+    content: "InDesign\00A0\00A0\Photoshop";
+}
+figure.illustrator.photoshop:not(.indesign)::after {
+    content: "Photoshop\00A0\00A0Illustrator";
+}
+figure.indesign.photoshop.illustrator::after {
+    content: "InDesign\00A0\00A0\Photoshop\00A0\00A0\Illustrator";
+}
+
+figure.indesign:not(.illustrator):not(.photoshop)::after {
+    content: "InDesign";
+}
+
+figure.illustrator:not(.photoshop):not(.indesign):after {
+    content: "Illustrator";
+ }
+
+figure.photoshop:not(.indesign):not(.illustrator):after {
+    content: "Photoshop";
+}
+
+
+
+
+section.copyright-section {
+    margin-bottom: 3rem;
+}
+.copyright-section p {
+    font-size: smaller;
+    font-weight: bolder;
+}
+.copyright-section p + p {
+    margin-top: 0;
+}

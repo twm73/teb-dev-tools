@@ -1,0 +1,9 @@
+.line {
+    border-top: 1px solid #ccc;
+}
+.toolsPanelButtonTitle{
+    color: white;
+}
+.switchablePanelsContentContainer, .switchablePanelsButton {
+    border-color: #ccc;
+}

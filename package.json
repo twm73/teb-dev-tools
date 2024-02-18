@@ -1,0 +1,31 @@
+{
+   "name": "extension-builder",
+   "version": "1.0.0",
+   "description": "**Zestaw narzędzi do tworzenia rozszerzeń dla programów z pakietu Adobe CC.**",
+   "main": "index.js",
+   "scripts": {
+      "test": "echo \"Error: no test specified\" && exit 1"
+   },
+   "repository": {
+      "type": "git",
+      "url": "git+https://github.com/s16315/extension-builder.git"
+   },
+   "author": "Tomasz Mnich",
+   "license": "Open source",
+   "bugs": {
+      "url": "https://github.com/s16315/extension-builder/issues"
+   },
+   "homepage": "https://github.com/s16315/extension-builder#readme",
+   "devDependencies": {
+      "fs": "0.0.1-security",
+      "gulp-shell": "^0.8.0",
+      "map-stream": "0.0.7",
+      "readline-sync": "^1.4.10",
+      "types-for-adobe": "^7.0.12",
+      "uuid": "^8.3.2"
+   },
+   "dependencies": {
+      "gulp": "^4.0.2",
+      "regedit": "^3.0.3"
+   }
+}

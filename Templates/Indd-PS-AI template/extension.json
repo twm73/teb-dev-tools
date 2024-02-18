@@ -1,0 +1,72 @@
+{
+   "extensionName": "Indd-PS-AI template",
+   "extensionId": "com.Indd-PS-AI template",
+   "publisher": "com.template.eu",
+   "extensionVersion": [
+      0,
+      0,
+      1
+   ],
+   "templateName": "Indd-PS-AI template",
+   "templateVersion": [
+      1,
+      0,
+      0
+   ],
+   "panelFolder": "",
+   "logFileName": "",
+   "targetEngine": "",
+   "panelName": "template",
+   "projectPaths": {
+      "sourceFolder": "01 source",
+      "manifestPath": "./01 source/CSXS",
+      "destinationFolder": "02 build",
+      "dictionaryPath": "assets/panelCode/dictionary.js",
+      "jsxDictionaryPath": "assets/appCode/libraries/ALL_dictionary.jsx",
+      "configPath": "./01 source/assets/panelCode",
+      "installerFolder": "03 installer",
+      "documentationFolder": "04 documentation",
+      "toolsFolder": "05 tools",
+      "testsFolder": "06 tests",
+      "appLibraries": "01 source/assets/appCode/libraries",
+      "i18nDictionaries": "assets/i18n",
+      "helpFileRelativePath": "assets/help/index.html",
+      "certificateName": "certificate.p12"
+   },
+   "extensionFolder": "template",
+   "domain": "com.template.eu",
+   "configFileName": "defaultConfig.js",
+   "manifestFileName": "manifest.xml",
+   "installerData": {
+      "innoScriptConfigFile": "innoScriptConfigFile.iss",
+      "systemExtensionsFolder": "{userappdata}/Adobe/CEP/extensions/",
+      "installerAppId": "template"
+   },
+   "tools": {
+      "makeShortcutsScriptFileName": "makeKeyboardShortcuts.jsx",
+      "jsxBinFileName": "jsxbin.jsx"
+   },
+   "targetApps": [
+      {
+         "appName": "Indesign",
+         "targetEngine": "indesign",
+         "appCodeName": "IDSN",
+         "testFilePath": "",
+         "debuggingPort": 8451
+      },
+      {
+         "appName": "PhotoShop",
+         "targetEngine": "photoshop",
+         "appCodeName": "PHXS",
+         "testFilePath": "",
+         "debuggingPort": 8452
+      },
+      {
+         "appName": "Illustrator",
+         "targetEngine": "illustrator",
+         "appCodeName": "ILST",
+         "testFilePath": "",
+         "debuggingPort": 8454
+      }
+   ]
+}

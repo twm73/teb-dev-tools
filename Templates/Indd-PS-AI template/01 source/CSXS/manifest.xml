@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<ExtensionManifest Version="4.0" ExtensionBundleId="com.template" ExtensionBundleVersion="0.0.1"
+		ExtensionBundleName="template" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+	<ExtensionList>
+		<Extension Id="template" Version="0.0.1" />
+	</ExtensionList>
+	<ExecutionEnvironment>
+		<HostList>
+			<Host Name="IDSN" Version="[9.1,22.0]" />
+			<Host Name="PHXS" Version="[14.0,27.9]" />
+			<Host Name="ILST" Version="[17.0,32.9]" />
+		</HostList>
+		<LocaleList>
+			<Locale Code="All" />
+		</LocaleList>
+		<RequiredRuntimeList>
+			<RequiredRuntime Name="CSXS" Version="4.0" />
+		</RequiredRuntimeList>
+	</ExecutionEnvironment>
+	<DispatchInfoList>
+		<Extension Id="template">
+			<DispatchInfo >
+				<Resources>
+					<MainPath>./index.html</MainPath>
+					<ScriptPath>./assets/start.jsx</ScriptPath>
+				</Resources>
+				<Lifecycle>
+					<AutoVisible>true</AutoVisible>
+				</Lifecycle>
+				<UI>
+					<Type>Panel</Type>
+					<Menu>template</Menu>
+					<Geometry>
+						<MinSize>
+							<Height>175</Height>
+							<Width>230</Width>
+						</MinSize>
+						<Size>
+							<Height>180</Height>
+							<Width>230</Width>
+						</Size>
+						<MaxSize>
+							<Height>370</Height>
+							<Width>230</Width>
+						</MaxSize>
+					</Geometry>
+				</UI>
+			</DispatchInfo>
+		</Extension>
+	</DispatchInfoList>
+</ExtensionManifest>

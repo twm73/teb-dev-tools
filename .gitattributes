@@ -1,0 +1,7 @@
+*.dll binary
+*.exe binary
+*.jsxbin binary
+*.7z binary
+*.zip binary
+*.bin binary
+*.pac binary

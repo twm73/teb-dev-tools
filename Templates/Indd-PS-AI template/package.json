@@ -1,0 +1,33 @@
+{
+  "name": "template",
+  "version": "0.1.0",
+  "description": "Adobe Extension",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "aws-sdk": "^2.1444.0",
+    "del": "^5.1.0",
+    "fs": "0.0.1-security",
+    "gulp": "^4.0.2",
+    "gulp-concat": "^2.6.1",
+    "gulp-csso": "^4.0.1",
+    "gulp-download": "^0.0.1",
+    "gulp-jsdoc3": "^3.0.0",
+    "gulp-shell": "^0.8.0",
+    "gulp-uglify": "^3.0.2",
+    "gulp-zip": "^5.0.1",
+    "inquirer": "^7.1.0",
+    "map-stream": "0.0.7",
+    "os": "^0.1.1",
+    "path": "^0.12.7",
+    "types-for-adobe": "^7.0.12"
+  },
+  "dependencies": {
+    "gulp-git": "^2.10.1",
+    "run-sequence": "^2.2.1"
+  }
+}
