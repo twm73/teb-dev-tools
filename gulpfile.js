@@ -12,7 +12,7 @@ let gulp = require('gulp'),
     readlineSync = require('readline-sync'),
     extensionBuilderPackageJSON = require('./package.json'),
 
-    extensionBuilderJSON = getExtensionConfig(),
+    extensionBuilderJSON = getExtensionBuilderConfig(),
 
 
     newExt = {
@@ -29,7 +29,7 @@ let gulp = require('gulp'),
  * @see createExtensionBuilderConfig
  * @return {object} - Extension Builder config.
  */
-function getExtensionConfig() {
+function getExtensionBuilderConfig() {
     if(!fs.existsSync(configPath)){
         createExtensionBuilderConfig({});
     }
@@ -156,7 +156,7 @@ function createExtensionBuilderConfig(done) {
                 "stateOrProvince": "province",
                 "certificatePassword": ""
             },
-            "extensionBuilderVersion": extensionBuilderPackageJSON.version.split('.'),
+            "extensionBuilderVersion": extensionBuilderPackageJSON.version.split('.').map((a)=>Number(a)),
             "paths": {
                 "root": process.cwd(),
                 "extensions": "Extensions/",
@@ -164,7 +164,7 @@ function createExtensionBuilderConfig(done) {
 
                 "installers": "Installers",
                 "templates": "Templates/",
-                "ide": "VSCode/",
+                "ide": "code.exe",
 
                 "localExtensionsFolder": os.homedir() + "/AppData/Roaming/Adobe/CEP/extensions",
                 "publicInstallerPath": ""
@@ -201,10 +201,9 @@ function createExtensionBuilderConfig(done) {
 
             }
         };
-        fs.writeFileSync(configPath, JSON.stringify(extensionBuilderConfig, null, 3).replace(/\\\\/gm,'/'), "utf-8");
         console.log('The extensionbuilder.json has been created.')
-    }
-    return done();
+        return fs.writeFileSync(configPath, JSON.stringify(extensionBuilderConfig, null, 3).replace(/\\\\/gm,'/'), "utf-8");
+    }else return done();
 }
 
 
@@ -221,7 +220,7 @@ function createExtensionBuilderConfig(done) {
 function getPublisherName() {
     console.log('Enter the name of the product publisher:');
     let publisherName = String(readlineSync.prompt());
-    if (publisherName !== '' && /\W/.test(publisherName)) {
+    if (publisherName !== '' && !/\W/.test(publisherName)) {
         console.log(publisherName);
         return publisherName;
     }
@@ -621,39 +620,50 @@ function createSignature(done) {
 
 
 function upMajorVersionInExtensionBuilder(done) {
-    const extensionFileContent = getExtensionConfig();
-    extensionFileContent.extensionBuilderVersion[0]++;
-    extensionFileContent.extensionBuilderVersion[1] = 0;
-    extensionFileContent.extensionBuilderVersion[2] = 0;
-    fs.writeFileSync(configPath, JSON.stringify(extensionFileContent, null, 3));
-    extensionBuilderJSON = getExtensionConfig();
+    const extensionBuilderConfigFileContent = getExtensionBuilderConfig();
+    extensionBuilderConfigFileContent.extensionBuilderVersion[0]++;
+    extensionBuilderConfigFileContent.extensionBuilderVersion[1] = 0;
+    extensionBuilderConfigFileContent.extensionBuilderVersion[2] = 0;
+    fs.writeFileSync(configPath, JSON.stringify(extensionBuilderConfigFileContent, null, 3));
+    extensionBuilderJSON = getExtensionBuilderConfig();
     return done();
 }
 
 function upMinorVersionInExtensionBuilder(done) {
-    const extensionFileContent = getExtensionConfig();
-    extensionFileContent.extensionBuilderVersion[1]++;
-    extensionFileContent.extensionBuilderVersion[2] = 0;
-    fs.writeFileSync(configPath, JSON.stringify(extensionFileContent, null, 3));
-    extensionBuilderJSON = getExtensionConfig();    return done();
+    const extensionBuilderConfigFileContent = getExtensionBuilderConfig();
+    extensionBuilderConfigFileContent.extensionBuilderVersion[1]++;
+    extensionBuilderConfigFileContent.extensionBuilderVersion[2] = 0;
+    fs.writeFileSync(configPath, JSON.stringify(extensionBuilderConfigFileContent, null, 3));
+    extensionBuilderJSON = getExtensionBuilderConfig();    return done();
 }
 
 function upPatchVersionInExtensionBuilder(done) {
-    const extensionFileContent = getExtensionConfig();
-    extensionFileContent.extensionBuilderVersion[2]++;
-    fs.writeFileSync(configPath, JSON.stringify(extensionFileContent, null, 3));
-    extensionBuilderJSON = getExtensionConfig();    return done();
+    const extensionBuilderConfigFileContent = getExtensionBuilderConfig();
+    extensionBuilderConfigFileContent.extensionBuilderVersion[2]++;
+    fs.writeFileSync(configPath, JSON.stringify(extensionBuilderConfigFileContent, null, 3));
+    extensionBuilderJSON = getExtensionBuilderConfig();    return done();
 }
 
 function updateVersionInReadMe() {
     return gulp.src('./README.md')
         .pipe(map(function (file, cb) {
             let fileContents = file.contents.toString();
-            fileContents = fileContents.replace(/>Wersja \d+\.\d+\.\d+/m, '>Wersja ' + extensionBuilderJSON.extensionBuilderVersion.join('.'));
+            fileContents = fileContents.replace(/>Version \d+\.\d+\.\d+/m, '>Version ' + extensionBuilderJSON.extensionBuilderVersion.join('.'));
             file.contents = Buffer.from(fileContents);
             cb(null, file);
         }))
         .pipe(gulp.dest('./'));
+}
+
+function updateVersionInDocumentation() {
+    return gulp.src('./Documentation/extension builder documentation.md')
+        .pipe(map(function (file, cb) {
+            let fileContents = file.contents.toString();
+            fileContents = fileContents.replace(/>Version \d+\.\d+\.\d+/m, '>Version ' + extensionBuilderJSON.extensionBuilderVersion.join('.'));
+            file.contents = Buffer.from(fileContents);
+            cb(null, file);
+        }))
+        .pipe(gulp.dest('./Documentation/'));
 }
 
 function upVersionInPackage(done) {
@@ -662,7 +672,13 @@ function upVersionInPackage(done) {
     fs.writeFileSync(process.cwd() + '/package.json', JSON.stringify(packageFileContent, null, 3));
     return done();
 }
-
+function upVersionInPackageLock(done) {
+    const packageFileContent = JSON.parse(fs.readFileSync( process.cwd() + '/package-lock.json', "utf-8"));
+    packageFileContent.version = extensionBuilderJSON.extensionBuilderVersion.join('.');
+    packageFileContent.packages = extensionBuilderJSON.extensionBuilderVersion.join('.');
+    fs.writeFileSync(process.cwd() + '/package-lock.json', JSON.stringify(packageFileContent, null, 3));
+    return done();
+}
 
 
 /**
@@ -683,21 +699,21 @@ gulp.task('EXTENSION_BUILDER_create_signature',
  * @function VERSION_UP_Major
  */
 gulp.task('VERSION_UP_Major', gulp.series(
-    upMajorVersionInExtensionBuilder, updateVersionInReadMe, upVersionInPackage
+    upMajorVersionInExtensionBuilder, updateVersionInReadMe, updateVersionInDocumentation, upVersionInPackageLock, upVersionInPackage
 ));
 
 /**
  * @function VERSION_UP_Minor
  */
 gulp.task('VERSION_UP_Minor', gulp.series(
-    upMinorVersionInExtensionBuilder, updateVersionInReadMe, upVersionInPackage
+    upMinorVersionInExtensionBuilder, updateVersionInReadMe, updateVersionInDocumentation, upVersionInPackageLock, upVersionInPackage
 ));
 
 /**
  * @function VERSION_UP_Patch
  */
 gulp.task('VERSION_UP_Patch', gulp.series(
-    upPatchVersionInExtensionBuilder, updateVersionInReadMe, upVersionInPackage
+    upPatchVersionInExtensionBuilder, updateVersionInReadMe, updateVersionInDocumentation, upVersionInPackageLock, upVersionInPackage
 ));
 
 /**

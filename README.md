@@ -1,6 +1,6 @@
 ![](Documentation/images/teb-logo.svg) 
 Copyright: Tomasz Mnich  
->Version 1.4.0
+>Version 1.4.1
 
 ## Table of Contents
 
@@ -28,7 +28,7 @@ If you are already capable of writing your own scripts, this extension will allo
 Check out the tutorials to see how easy it is.
 
 Development environment:
-- [Quick Start](/Documentation/teb-tutorial.md)
+- [Quick Start](Documentation/teb-tutorial.md)
 - [Documentation](Documentation/extension%20builder%20documentation.md)
 
 Extension Template:

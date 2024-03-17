@@ -80,22 +80,21 @@ If you want a comfortable way to edit dialog options, install the free i18n-edit
 3. An `extensionbuilder.json` file will be created.
 4. In your local copy of the package, update the paths in `extensionbuilder.json` so that they are
    consistent with the actual location of your Extension Builder package folder.
-   - `paths.root` - Full path to the **Extension Builder** package folder
+   - `paths.root` - Full path to the **Extension Builder** package folder.
+   - `paths.ide` - Full path to your IDE.
    - `paths.publicInstallerPath` - Full path to the folder where the production versions of extensions should be generated
-   - `root.localExtensionsFolder` - Full path to the local folder with extensions
-      - `~user/AppData/Roaming/Adobe/CEP/extensions`
-   - `tools.adobeDebugConsole.path` - Full path to `cefclient.exe`
-     from [Adobe Creative Cloud APIs and SDK](https://developer.adobe.com/apis/)
-   - `tools.zip.path` - Full path to `7z.exe` ([7-Zip](https://7-zip.org.pl/))
-   - `tools.installerGenerator.path` - Full path
-     to `ISCC.exe` ([Inno Setup](https://jrsoftware.org/isdl.php))
-   - `tools.adobeExtendScriptToolkit.path` - Full path to `ExtendScript Toolkit.exe`
-     from [Adobe Creative Cloud APIs and SDK](https://developer.adobe.com/apis/)
+   - `root.localExtensionsFolder` - Full path to the local folder with extensions.
+        - `~user/AppData/Roaming/Adobe/CEP/extensions`
+   - `tools.adobeDebugConsole.path` - Full path to `cefclient.exe`.
+     from [Adobe Creative Cloud APIs and SDK](https://developer.adobe.com/apis/.
+   - `tools.zip.path` - Full path to `7z.exe` ([7-Zip](https://7-zip.org.pl/)).
+   - `tools.adobeExtendScriptToolkit.path` - Full path to `ExtendScript Toolkit.exe`.
+     from [Adobe Creative Cloud APIs and SDK](https://developer.adobe.com/apis/).
 
 
 ## Creating a new extension [**↑**](#Table-of-Contents)
-Nowe rozszerzenie możesz wygenerować poleceniem `gulp EXTENSION_create_new`. 
+You can generate a new extension with the command `gulp EXTENSION_create_new`.
 
-Jeżeli chcesz tylko przeprowadzić szybki próbę, to `gulp EXTENSION_create_test` utworzy rozszerzenie z predefiniowanymi danymi.
+If you only want to conduct a quick test, the `gulp EXTENSION_create_test` will create an extension with predefined data.
 
-Szczegółową instrukcję znajdziesz w [Template Tutorial](../Templates/Indd-PS-AI%20template/04%20documentation/template-documentation/Tutorial.md).
+Detailed instructions can be found in the [Template Tutorial](../Templates/Indd-PS-AI%20template/04%20documentation/template-documentation/Tutorial.md).

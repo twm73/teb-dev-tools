@@ -4,7 +4,7 @@
 
 **A toolkit for creating extensions for programs from the Adobe CC package.**  
 Copyright: Tomasz Mnich  
->Version 1.4.0
+>Version 1.4.1
 
 ## Requirements
 
